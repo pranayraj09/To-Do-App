@@ -2,6 +2,7 @@
  * Created by pranay on 9/17/17.
  */
 import React, { Component } from 'react';
+import classes from 'components.scss';
 
 class ListItem extends Component {
     constructor(props) {

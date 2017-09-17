@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import ListItem from './ListItem';
+// import 'components.css';
 
 class List extends Component {
     render() {

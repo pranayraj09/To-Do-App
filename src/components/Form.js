@@ -2,6 +2,7 @@
  * Created by pranay on 9/17/17.
  */
 import React, { Component } from 'react';
+// import 'components.css';
 
 class Form extends Component {
     constructor(props) {
@@ -32,8 +33,8 @@ class Form extends Component {
         return (
             <div className="form">
                 <form onSubmit={this.onSubmit}>
-                    <input type="text" name="task" onChange={ (event) => this.onChange('task', event.target.value) } />
-                    <input type="submit" value="Add Task"/>
+                    <input type="text" className="form-control" name="task" onChange={ (event) => this.onChange('task', event.target.value) } />
+                    <button type="submit" className="btn btn-primary" value="Add Task">Add ToDO</button>
                 </form>
             </div>
         );

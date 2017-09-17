@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import Form from '../components/Form';
 import List from '../components/List';
+// import 'home.css'
 
 class Home extends Component {
     constructor(props) {
