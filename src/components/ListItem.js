@@ -7,28 +7,28 @@ class ListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isCompleted: this.props.task.isCompleted
+            completed: this.props.task.completed
         }
         this.onChange = this.onChange.bind(this);
     }
 
     onChange() {
-        const isCompleted = !this.state.isCompleted;
-        this.setState({ isCompleted });
+        const completed = !this.state.completed;
+        this.setState({ completed });
         this.props.onUpdate({
-            isCompleted,
-            index: this.props.index
+            completed,
+            id: this.props.task.id
         });
     }
 
     render() {
-        let text = (<span className="form-control">{this.props.task.title}</span>);
-        if (this.state.isCompleted) {
-            text = (<del className="form-control">{this.props.task.title}</del>);
+        let text = (<span className="form-control">{this.props.task.text}</span>);
+        if (this.state.completed) {
+            text = (<del className="form-control">{this.props.task.text}</del>);
         }
         return (
             <li>
-                <input type="checkbox" className="checkbox" onChange={this.onChange} checked={this.state.isCompleted} /> {text}
+                <input type="checkbox" className="checkbox" onChange={this.onChange} checked={this.state.completed} /> {text}
             </li>
         );
     }

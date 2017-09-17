@@ -12,7 +12,7 @@ class List extends Component {
                 <ul>
                     {
                         this.props.tasks.map((task, index) => {
-                            return <ListItem key={index} task={task} index={index} onUpdate={this.props.onUpdate}/>
+                            return <ListItem key={index} task={task} onUpdate={this.props.onUpdate}/>
                         })
                     }
                 </ul>
