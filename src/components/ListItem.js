@@ -22,13 +22,13 @@ class ListItem extends Component {
     }
 
     render() {
-        let text = (<span>{this.props.task.title}</span>);
+        let text = (<span className="form-control">{this.props.task.title}</span>);
         if (this.state.isCompleted) {
-            text = (<del>{this.props.task.title}</del>);
+            text = (<del className="form-control">{this.props.task.title}</del>);
         }
         return (
             <li>
-                <input type="checkbox" onChange={this.onChange} checked={this.state.isCompleted} /> {text}
+                <input type="checkbox" className="checkbox" onChange={this.onChange} checked={this.state.isCompleted} /> {text}
             </li>
         );
     }

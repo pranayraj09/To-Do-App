@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 import Form from '../components/Form';
 import List from '../components/List';
-// import 'home.css'
 
 class Home extends Component {
     constructor(props) {
@@ -47,7 +46,7 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="app">
+            <div className="app panel-body">
                 <div className="app-header">
                     <h2>TO-DO List App</h2>
                 </div>
