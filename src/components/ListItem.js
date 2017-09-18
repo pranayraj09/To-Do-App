@@ -1,5 +1,5 @@
 /**
- * Created by pranay on 9/17/17.
+ * Created by pranay on 9/18/17.
  */
 import React, { Component } from 'react';
 import './components.css';
@@ -22,23 +22,26 @@ class ListItem extends Component {
             id: this.props.task.id
         });
     }
-    //
-    // render() {
-    //     let text = (<span className="form-control"> <input type="checkbox"/>{this.props.task.text}</span>);
-    //     if (this.state.completed) {
-    //         text = (<del className="form-control"> <input type="checkbox"/> {this.props.task.text}</del>);
-    //     }
-    //     return (
-    //         <li>
-    //             <input type="checkbox" className="checkbox" onChange={this.onChange} checked={this.state.completed} /> {text}
-    //         </li>
-    //     );
-    // }
-
     render() {
-        let text = (<label> <span className="cr"><i className="cr-icon glyphicon glyphicon-ok"></i></span> <p><input type="checkbox" onChange={this.onChange} checked={this.state.completed}/> {this.props.task.text}</p></label>);
+        let text = (
+            <label>
+                <p>
+                    <input type="checkbox" onChange={this.onChange} checked={this.state.completed}/>
+                    <span className="cr"><i className="cr-icon glyphicon glyphicon-ok"></i></span>
+                    {this.props.task.text}
+                </p>
+            </label>
+        );
         if (this.state.completed) {
-            text = (<label><input type="checkbox" onChange={this.onChange} checked={this.state.completed}/> <span className="cr"><i className="cr-icon glyphicon glyphicon-ok"></i></span> <del> {this.props.task.text}</del></label>);
+            text = (
+                <label>
+                    <del>
+                        <input type="checkbox" onChange={this.onChange} checked={this.state.completed}/>
+                        <span className="cr"><i className="cr-icon glyphicon glyphicon-ok"></i></span>
+                        {this.props.task.text}
+                    </del>
+                </label>
+            );
         }
         return (
             <li>
