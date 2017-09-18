@@ -2,6 +2,7 @@
  * Created by pranay on 9/17/17.
  */
 import React, { Component } from 'react';
+import './components.css';
 
 class Form extends Component {
     constructor(props) {
@@ -24,6 +25,9 @@ class Form extends Component {
         if(this.state.task === '') {
             alert("Please enter the task.");
         } else {
+            this.setState({
+                task:''
+            })
             this.props.onSubmit(this.state.task);
         }
     }
@@ -31,9 +35,9 @@ class Form extends Component {
     render() {
         return (
             <div className="form">
-                <form onSubmit={this.onSubmit}>
-                    <input type="text" placeholder="Add a to do..." className="form-control" name="task" onChange={ (event) => this.onChange('task', event.target.value) } />
-                    <button type="submit" className="btn btn-primary" value="Add Task">Add To DO</button>
+                <form className="form-wrapper" onSubmit={this.onSubmit}>
+                    <input type="text" placeholder="Add a to do..." value={this.state.task} className="form-control" name="task" onChange={ (event) => this.onChange('task', event.target.value) } />
+                    <button type="submit" className="btn btn-primary" value="Add Task">Add To Do</button>
                 </form>
             </div>
         );

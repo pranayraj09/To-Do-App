@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Form from '../components/Form';
 import List from '../components/List';
+import './main.css';
 
 class Home extends Component {
     constructor(props) {
@@ -37,8 +38,7 @@ class Home extends Component {
 
         let details = {
             'email': 'pranay@apple.com',
-            'text': task,
-            'completed': 'false'
+            'text': task
         };
 
         let formBody = [];
@@ -48,7 +48,6 @@ class Home extends Component {
             formBody.push(encodedKey + "=" + encodedValue);
         }
         formBody = formBody.join("&");
-
         fetch("http://quip-todos.herokuapp.com/add_todo", {
             method: "POST",
             headers: {
@@ -60,23 +59,33 @@ class Home extends Component {
     }
 
     onUpdate(task) {
-        const formData = new FormData();
-        formData.append('email', 'pranay@apple.com');
-        formData.append('id', task.id);
-        formData.append('completed', task.completed);
+
+        let details = {
+            'email': 'pranay@apple.com',
+            'id': task.id,
+            'completed': task.completed
+        };
+
+        let formBody = [];
+        for (let property in details) {
+            let encodedKey = encodeURIComponent(property);
+            let encodedValue = encodeURIComponent(details[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
         fetch("http://quip-todos.herokuapp.com/mark_completed", {
             method: "POST",
-            body: formData
+            body: formBody,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
         });
         this.syncTasks();
     }
 
     render() {
         return (
-            <div className="app panel-body">
-                <div className="app-header">
-                    <h2>TO-DO List App</h2>
-                </div>
+            <div className="app panel-body container col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 jumbotron">
                 <Form
                     onSubmit={this.onSubmit}
                 />

@@ -22,15 +22,29 @@ class ListItem extends Component {
             id: this.props.task.id
         });
     }
+    //
+    // render() {
+    //     let text = (<span className="form-control"> <input type="checkbox"/>{this.props.task.text}</span>);
+    //     if (this.state.completed) {
+    //         text = (<del className="form-control"> <input type="checkbox"/> {this.props.task.text}</del>);
+    //     }
+    //     return (
+    //         <li>
+    //             <input type="checkbox" className="checkbox" onChange={this.onChange} checked={this.state.completed} /> {text}
+    //         </li>
+    //     );
+    // }
 
     render() {
-        let text = (<span className="form-control">{this.props.task.text}</span>);
+        let text = (<label> <span className="cr"><i className="cr-icon glyphicon glyphicon-ok"></i></span> <p><input type="checkbox" onChange={this.onChange} checked={this.state.completed}/> {this.props.task.text}</p></label>);
         if (this.state.completed) {
-            text = (<del className="form-control">{this.props.task.text}</del>);
+            text = (<label><input type="checkbox" onChange={this.onChange} checked={this.state.completed}/> <span className="cr"><i className="cr-icon glyphicon glyphicon-ok"></i></span> <del> {this.props.task.text}</del></label>);
         }
         return (
             <li>
-                <input type="checkbox" className="checkbox" onChange={this.onChange} checked={this.state.completed} /> {text}
+                <div className="checkbox">
+                    {text}
+                </div>
             </li>
         );
     }
