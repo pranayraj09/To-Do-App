@@ -24,7 +24,7 @@ class Home extends Component {
 
     syncTasks(){
         const SELF = this;
-        fetch('http://quip-todos.herokuapp.com/get_todos?email=pranay@apple.com').then((res) => res.json()).then((data) => {
+        fetch('https://quip-todos.herokuapp.com/get_todos?email=pranay@apple.com').then((res) => res.json()).then((data) => {
             console.log(data);
             SELF.setState({
                 tasks: data
@@ -48,7 +48,7 @@ class Home extends Component {
             formBody.push(encodedKey + "=" + encodedValue);
         }
         formBody = formBody.join("&");
-        fetch("http://quip-todos.herokuapp.com/add_todo", {
+        fetch("https://quip-todos.herokuapp.com/add_todo", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -73,7 +73,7 @@ class Home extends Component {
             formBody.push(encodedKey + "=" + encodedValue);
         }
         formBody = formBody.join("&");
-        fetch("http://quip-todos.herokuapp.com/mark_completed", {
+        fetch("https://quip-todos.herokuapp.com/mark_completed", {
             method: "POST",
             body: formBody,
             headers: {
