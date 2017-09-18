@@ -34,15 +34,27 @@ class Home extends Component {
     }
 
     onSubmit(task) {
-        const formData = new FormData();
-        formData.append('email', 'pranay@apple.com');
-        formData.append('text', task);
+
+        let details = {
+            'email': 'pranay@apple.com',
+            'text': task,
+            'completed': 'false'
+        };
+
+        let formBody = [];
+        for (let property in details) {
+            let encodedKey = encodeURIComponent(property);
+            let encodedValue = encodeURIComponent(details[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
+
         fetch("http://quip-todos.herokuapp.com/add_todo", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: new FormData(formData)
+            body: formBody
         });
         this.syncTasks();
     }

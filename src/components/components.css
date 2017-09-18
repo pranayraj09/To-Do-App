@@ -1,0 +1,40 @@
+body{
+    background-color: red;
+}
+.task-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*.task-list ul li {*/
+    /*border: 1px solid #888;*/
+    /*margin: 7px 0px;*/
+    /*padding: 10px;*/
+/*}*/
+
+input[type=checkbox]
+{
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    padding: 10px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext
+{
+    /* Checkbox text */
+    font-size: 110%;
+    display: inline;
+}
+
+.task-list ul li label{
+    display: block;
+    position: relative;
+}
+.task-list ul li label input, .task-list ul li label del, .task-list ul li label span {
+    display: inline-block;
+}

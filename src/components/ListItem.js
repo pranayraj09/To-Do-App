@@ -2,6 +2,8 @@
  * Created by pranay on 9/17/17.
  */
 import React, { Component } from 'react';
+import './components.css';
+
 
 class ListItem extends Component {
     constructor(props) {
