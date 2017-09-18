@@ -2,7 +2,7 @@
   "name": "todo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://pranayraj09.github.io/todoapp",
+  "homepage": "http://pranayraj09.github.io/To-Do-App",
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^3.3.7",
